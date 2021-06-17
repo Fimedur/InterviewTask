@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TestDb2ModelStoreContainer" CdmEntityContainer="TestDb2Entities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="TestDb2Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="IsBonusAdded" ColumnName="IsBonusAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblManagerMaps">
+      <EntityTypeMapping TypeName="TestDb2Model.tblManagerMap">
+        <MappingFragment StoreEntitySet="tblManagerMap">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ImmediateManagerID" ColumnName="ImmediateManagerID" />
+          <ScalarProperty Name="RootManagerID" ColumnName="RootManagerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalViews">
+      <EntityTypeMapping TypeName="TestDb2Model.FinalView">
+        <MappingFragment StoreEntitySet="FinalView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="IsBonusAdded" ColumnName="IsBonusAdded" />
+          <ScalarProperty Name="Salary_with_bonus" ColumnName="Salary with bonus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maps">
+      <EntityTypeMapping TypeName="TestDb2Model.Map">
+        <MappingFragment StoreEntitySet="Map">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="Join_Year" ColumnName="Join Year" />
+          <ScalarProperty Name="RootManagerID" ColumnName="RootManagerID" />
+          <ScalarProperty Name="ImmediateManagerID" ColumnName="ImmediateManagerID" />
+          <ScalarProperty Name="IsBonusAdded" ColumnName="IsBonusAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_2">
+      <EntityTypeMapping TypeName="TestDb2Model.View_2">
+        <MappingFragment StoreEntitySet="View_2">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="Join_Year" ColumnName="Join Year" />
+          <ScalarProperty Name="ImmediateManagerID" ColumnName="ImmediateManagerID" />
+          <ScalarProperty Name="RootManagerID" ColumnName="RootManagerID" />
+          <ScalarProperty Name="Salary_with_bonus" ColumnName="Salary with bonus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
