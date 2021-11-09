@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "AddManager";
+}
+
+<h2>AddManager</h2>
+<div>
+    <div class="form-group">
+        <label>ID:</label>
+        <input class="form-control" name="Id" placeholder="Enter ID" />
+    </div>
+    <div class="form-group">
+        <label>Employee ID:</label>
+        <input class="form-control" name="EmpID" placeholder="Enter Employee ID" />
+    </div>
+    <div class="form-group">
+        <label>Immediate Manager ID ID:</label>
+        <input class="form-control" name="ImmediateManagerID" placeholder="Enter Immediate Manager ID" />
+    </div>
+    <div class="form-group">
+        <label>Root Manager ID:</label>
+        <input class="form-control" name="RootManagerID" placeholder="Enter RootManagerID ID" />
+    </div>
+</div>
+
+<input type="submit" value="Create" class="btn btn-default" id="btnSubmit" />
+<script>
+    $(document).ready(function () {
+
+        $(function () {
+            $('#btnSubmit').click(function (event) {
+                event.preventDefault();
+                var tblManagerMap = {
+                    Id: 10001,
+                    EmpID: 33,
+                    ImmediateManagerID: 31,
+                    RootManagerID: 30
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/Manager/AddManager",
+                    data: JSON.stringify(tblManagerMap),
+                    dataType: "json"  
+                    //contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        alert(data.msg);
+                    },
+                    error: function () {
+                        alert("Error occured!!")
+                    }
+                });
+            });
+        });  
+ });
+
+</script>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestDb2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="JoinDate" Type="datetime" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsBonusAdded" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDb2.dbo.tblManagerMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblManagerMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" />
+    <Property Name="ImmediateManagerID" Type="int" />
+    <Property Name="RootManagerID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDb2.dbo.FinalView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FinalView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="JoinDate" Type="datetime" />
+    <Property Name="IsBonusAdded" Type="bit" />
+    <Property Name="Salary with bonus" Type="decimal" Precision="19" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDb2.dbo.Map' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Map">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="JoinDate" Type="datetime" />
+    <Property Name="Join Year" Type="int" />
+    <Property Name="RootManagerID" Type="int" />
+    <Property Name="ImmediateManagerID" Type="int" />
+    <Property Name="IsBonusAdded" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestDb2.dbo.View_2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="JoinDate" Type="datetime" />
+    <Property Name="Join Year" Type="int" />
+    <Property Name="ImmediateManagerID" Type="int" />
+    <Property Name="RootManagerID" Type="int" />
+    <Property Name="Salary with bonus" Type="decimal" Precision="19" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="TestDb2ModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblManagerMap" EntityType="Self.tblManagerMap" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblManagerMap].[Id] AS [Id], 
+    [tblManagerMap].[EmpID] AS [EmpID], 
+    [tblManagerMap].[ImmediateManagerID] AS [ImmediateManagerID], 
+    [tblManagerMap].[RootManagerID] AS [RootManagerID]
+    FROM [dbo].[tblManagerMap] AS [tblManagerMap]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FinalView" EntityType="Self.FinalView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FinalView].[Id] AS [Id], 
+    [FinalView].[Name] AS [Name], 
+    [FinalView].[Designation] AS [Designation], 
+    [FinalView].[Salary] AS [Salary], 
+    [FinalView].[JoinDate] AS [JoinDate], 
+    [FinalView].[IsBonusAdded] AS [IsBonusAdded], 
+    [FinalView].[Salary with bonus] AS [Salary with bonus]
+    FROM [dbo].[FinalView] AS [FinalView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Map" EntityType="Self.Map" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Map].[Id] AS [Id], 
+    [Map].[Name] AS [Name], 
+    [Map].[Designation] AS [Designation], 
+    [Map].[Salary] AS [Salary], 
+    [Map].[JoinDate] AS [JoinDate], 
+    [Map].[Join Year] AS [Join Year], 
+    [Map].[RootManagerID] AS [RootManagerID], 
+    [Map].[ImmediateManagerID] AS [ImmediateManagerID], 
+    [Map].[IsBonusAdded] AS [IsBonusAdded]
+    FROM [dbo].[Map] AS [Map]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_2" EntityType="Self.View_2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_2].[Id] AS [Id], 
+    [View_2].[Name] AS [Name], 
+    [View_2].[Designation] AS [Designation], 
+    [View_2].[Salary] AS [Salary], 
+    [View_2].[JoinDate] AS [JoinDate], 
+    [View_2].[Join Year] AS [Join Year], 
+    [View_2].[ImmediateManagerID] AS [ImmediateManagerID], 
+    [View_2].[RootManagerID] AS [RootManagerID], 
+    [View_2].[Salary with bonus] AS [Salary with bonus]
+    FROM [dbo].[View_2] AS [View_2]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

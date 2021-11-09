@@ -1,5 +1,7 @@
 ﻿@model List<WebApplication4.Models.View_2>
 
+@*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>*@
+
 @using (Html.BeginForm("AllEmployeeDetails", "Employee", FormMethod.Get))
 {
     <div>
@@ -8,18 +10,18 @@
     <div style="display: flex; padding: 5px" class="bu">
         <input type="text" name="Id" />
         <br />
-        <input type="submit" class="btn btn-primary" style="margin-left: 10px;"/>
+        <input type="submit" class="btn btn-primary" style="margin-left: 10px;" />
     </div>
 }
 <div style="display: flex ; padding: 5px" class="bu">
     <button class="btn btn-danger" id="btnSalary" style="padding: 5px; margin-right: 10px">Hilight Salary</button>
     <button class="btn btn-success" id="btnSalaryW" style=" padding: 5px; margin-left: 10px">Hilight Salary with bonus</button>
-    <input type="submit" id="submit" value="Ready To Print" class="btn btn-primary"  style=" padding: 5px; margin-left: 10px" />
+    <input type="submit" id="submit" value="Ready To Print" class="btn btn-primary" style=" padding: 5px; margin-left: 10px" />
 </div>
 <br />
 
 
-<div>
+<div id="Grid">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -33,7 +35,7 @@
                 <th>RootManagerID</th>
                 <th>Salary_with_bonus</th>
 
-                <th>Action</th>
+                <th class="action">Action</th>
             </tr>
         </thead>
         <tbody id="XX">
@@ -49,7 +51,7 @@
                     <td>@Model[i].ImmediateManagerID</td>
                     <td>@Model[i].RootManagerID</td>
                     <td class="Salary-with-bonus">@Model[i].Salary_with_bonus</td>
-                    <td>
+                    <td class="action">
                         <a href="@Url.Action("Delete",new { id = Model[i].Id})"><i class="glyphicon glyphicon-trash"></i></a>
                         <a href="@Url.Action("EditEmployee",new { id = Model[i].Id})"><i class="glyphicon glyphicon-pencil"></i></a>
                     </td>
@@ -58,7 +60,7 @@
 
         </tbody>
     </table>
-    <h1>Paid by :--------</h1>
+    @*<h1>Paid by :--------</h1>
     <hr />
     <table class="table table-bordered">
         <thead>
@@ -73,7 +75,7 @@
                 <th>RootManagerID</th>
                 <th>Salary_with_bonus</th>
 
-                <th>Action</th>
+                <th class="action">Action</th>
             </tr>
         </thead>
         <tbody id="XX">
@@ -90,7 +92,7 @@
                     <td>@Model[i].RootManagerID</td>
                     <td class="Salary-with-bonus">@Model[i].Salary_with_bonus</td>
 
-                    <td>
+                    <td class="action">
                         <a href="@Url.Action("Delete",new { id = Model[i].Id})"><i class="glyphicon glyphicon-trash"></i></a>
                         <a href="@Url.Action("EditEmployee",new { id = Model[i].Id})"><i class="glyphicon glyphicon-pencil"></i></a>
                     </td>
@@ -98,8 +100,17 @@
             }
 
         </tbody>
-    </table>
+    </table>*@
 </div>
+
+
+@using (Html.BeginForm("Export", "Employee", FormMethod.Post))
+{
+    <input type="hidden" name="GridHtml" />
+    <input type="submit" id="btnSubmit" value="Export" />
+}
+
+
 <script>
     //document.getElementById('btnSalary').addEventListener("click", function () {
     //    document.getElementById('salary');
@@ -117,13 +128,14 @@
                 event.preventDefault();
                 alert("print?")
                 $('.bu').hide();
+                $('.action').hide();
 
             })
 
             $('#btnSalary').click(function (event) {
                 event.preventDefault();
                 alert("Hello");
-            
+
                 $('.salary').css("background-color", "red");
             });
             $('#btnSalaryW').click(function () {
@@ -132,7 +144,16 @@
                 $('.Salary-with-bonus').css("background-color", "green");
             });
         });
+        
+        // Exel Export
+        $(function () {
+            $("#btnSubmit").click(function () {
+                $("input[name='GridHtml']").val($("#Grid").html());
+            });
+        });
+
     })
+
 </script>
 
 

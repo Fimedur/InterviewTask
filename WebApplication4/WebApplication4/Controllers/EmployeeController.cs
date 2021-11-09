@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication4.Models;
@@ -31,6 +32,14 @@ namespace WebApplication4.Controllers
             
             var item = db.View_2.Where(v => v.RootManagerID == X).ToList();
             return View(item);
+        }
+        // Exel Export
+        [HttpPost]
+        [ValidateInput(false)]
+        public FileResult Export(string GridHtml)
+        {
+            string name = DateTime.Now.ToString("dd-MM-yyyy");
+            return File(Encoding.ASCII.GetBytes(GridHtml), "application/vnd.ms-excel", ""+name+".xls");
         }
     }
 }

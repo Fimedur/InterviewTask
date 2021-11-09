@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestDb2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="DateTime" Precision="3" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsBonusAdded" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblManagerMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" />
+    <Property Name="ImmediateManagerID" Type="Int32" />
+    <Property Name="RootManagerID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="FinalView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="JoinDate" Type="DateTime" Precision="3" />
+    <Property Name="IsBonusAdded" Type="Boolean" />
+    <Property Name="Salary_with_bonus" Type="Decimal" Precision="19" Scale="2" />
+  </EntityType>
+  <EntityType Name="Map">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="JoinDate" Type="DateTime" Precision="3" />
+    <Property Name="Join_Year" Type="Int32" />
+    <Property Name="RootManagerID" Type="Int32" />
+    <Property Name="ImmediateManagerID" Type="Int32" />
+    <Property Name="IsBonusAdded" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="View_2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="JoinDate" Type="DateTime" Precision="3" />
+    <Property Name="Join_Year" Type="Int32" />
+    <Property Name="ImmediateManagerID" Type="Int32" />
+    <Property Name="RootManagerID" Type="Int32" />
+    <Property Name="Salary_with_bonus" Type="Decimal" Precision="19" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="TestDb2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="tblManagerMaps" EntityType="Self.tblManagerMap" />
+    <EntitySet Name="FinalViews" EntityType="Self.FinalView" />
+    <EntitySet Name="Maps" EntityType="Self.Map" />
+    <EntitySet Name="View_2" EntityType="Self.View_2" />
+  </EntityContainer>
+</Schema>
