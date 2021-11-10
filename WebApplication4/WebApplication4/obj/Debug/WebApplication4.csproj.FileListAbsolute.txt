@@ -118,3 +118,7 @@ F:\InterviewTask\WebApplication4\WebApplication4\obj\Debug\WebApplication4.cspro
 F:\InterviewTask\WebApplication4\WebApplication4\obj\Debug\WebApplication4.csproj.CopyComplete
 F:\InterviewTask\WebApplication4\WebApplication4\obj\Debug\WebApplication4.dll
 F:\InterviewTask\WebApplication4\WebApplication4\obj\Debug\WebApplication4.pdb
+F:\InterviewTask\WebApplication4\WebApplication4\bin\BouncyCastle.Crypto.dll
+F:\InterviewTask\WebApplication4\WebApplication4\bin\itextsharp.dll
+F:\InterviewTask\WebApplication4\WebApplication4\bin\itextsharp.xmlworker.dll
+F:\InterviewTask\WebApplication4\WebApplication4\bin\itextsharp.xml
